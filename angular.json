@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "firebase"
+  "defaultProject": "firebase",
+  "cli": {
+    "analytics": "a16f0970-0873-4cec-86e6-17cca703c22f"
+  }
 }

@@ -1,0 +1,62 @@
+<h3>Add category</h3>
+<div>
+  <form #userlogin = "ngForm" (ngSubmit) = "submitCategory(userlogin.value)" >
+    <input type = "text" name = "category" placeholder = "category" ngModel>
+    <br>
+    <br>
+    <input type = "submit" value = "submit">
+ </form>
+  
+</div>
+<br>
+<br>
+<h3>Add news</h3>
+<div>
+    <form #newsForm = "ngForm" (ngSubmit) = "submitNews(newsForm.value)">
+        <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio" checked="true" (change)="changeImageUploadOrVideoUrl()">Image news
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio" (change)="changeImageUploadOrVideoUrl()">Video news
+            </label>
+          </div>
+          <br>
+          <br>
+          <div class="custom-file" style="width:30vw;" *ngIf="isImage">
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="imageUrl" ngModel><br><br>
+          </div>
+          <br>
+          <br>
+          <div class="input-group" style="width:50vw;" *ngIf="!isImage">
+            <input type = "text" name = "videoUrl" placeholder = "video url" ngModel>
+            
+          </div>
+          <br>
+          <br>
+          <div class="form-group" style="width:60vw">
+            <label for="sel1">Select news category</label>
+            <select class="custom-select" name="newsCategory" ngModel>
+                <option selected>choose news category</option>
+                <option [value]="item.field" *ngFor="let item of categories">{{item.field}}</option>
+                
+              </select>
+          </div> 
+         <br>
+         <br>
+         <div class="form-group" style="width:50vw;">
+            <label for="comment">News heading</label>
+            <textarea class="form-control" rows="2" id="comment" name="newsTittle" ngModel></textarea>
+         </div> 
+
+   
+         <div class="form-group" style="width:50vw;">
+            <label for="comment">News content</label>
+            <textarea class="form-control" rows="10" id="comment" name="newsContent" ngModel></textarea>
+         </div> 
+         <input type = "submit" value = "submit">
+    </form>
+</div>
